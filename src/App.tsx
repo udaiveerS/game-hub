@@ -1,16 +1,22 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { ChakraProvider, Grid, GridItem, Button } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import GameGrid from "./components/GameGrid";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <ChakraProvider>
-      <Button colorScheme={"blue"}>Test</Button>
-    </ChakraProvider>
+    // <Button colorScheme="blue">Button</Button>
+    <Grid templateAreas={`"nav nav" "aside main"`}>
+      <GridItem area="nav">
+        <NavBar></NavBar>
+      </GridItem>
+      <GridItem area="aside">Aside</GridItem>
+      <GridItem area="main">
+        <GameGrid></GameGrid>
+      </GridItem>
+    </Grid>
   );
 }
 
